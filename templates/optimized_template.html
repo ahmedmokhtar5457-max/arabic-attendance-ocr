@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج الحضور المحسن - Optimized Attendance Template</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 20mm;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: white;
+            color: black;
+            direction: rtl;
+        }
+        
+        .header {
+            height: 30mm;
+            border-bottom: none;
+            margin-bottom: 10mm;
+            position: relative;
+        }
+        
+        .header-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10mm;
+        }
+        
+        .doc-number {
+            font-size: 14pt;
+            font-weight: bold;
+        }
+        
+        .year {
+            font-size: 16pt;
+            font-weight: bold;
+        }
+        
+        .location-date {
+            text-align: center;
+            margin: 10mm 0;
+        }
+        
+        .location {
+            font-size: 12pt;
+            margin-bottom: 5mm;
+        }
+        
+        .date {
+            font-size: 12pt;
+            border-bottom: 1px solid black;
+            display: inline-block;
+            min-width: 80mm;
+            text-align: center;
+            padding: 2mm;
+        }
+        
+        .table-container {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10mm;
+        }
+        
+        .attendance-table {
+            width: 100%;
+            border-collapse: collapse;
+            border: 2px solid black;
+        }
+        
+        .table-header {
+            background: white;
+            border-bottom: 2px solid black;
+        }
+        
+        .table-header th {
+            padding: 3mm;
+            text-align: center;
+            font-weight: bold;
+            font-size: 11pt;
+            border-left: 1px solid black;
+            height: 10mm;
+            vertical-align: middle;
+        }
+        
+        .table-header th:first-child {
+            border-left: none;
+        }
+        
+        .table-row {
+            height: 8mm;
+            border: none;
+        }
+        
+        .table-row td {
+            border-left: 1px solid black;
+            border-bottom: none;
+            padding: 2mm;
+            text-align: center;
+            vertical-align: middle;
+            font-size: 10pt;
+        }
+        
+        .table-row td:first-child {
+            border-left: none;
+        }
+        
+        /* Column-specific styling */
+        .col-index {
+            width: 15mm;
+        }
+        
+        .col-name {
+            width: 60mm;
+            text-align: right;
+        }
+        
+        .col-attendance-time {
+            width: 25mm;
+            background: white;
+            font-weight: bold;
+        }
+        
+        .col-rank {
+            width: 40mm;
+            background: white;
+            font-weight: bold;
+        }
+        
+        .col-shift {
+            width: 25mm;
+            background: white;
+            font-weight: bold;
+        }
+        
+        .col-signature {
+            width: 30mm;
+        }
+        
+        .col-notes {
+            width: 40mm;
+        }
+        
+        /* Target columns highlighting for development */
+        .target-column {
+            position: relative;
+        }
+        
+        .target-column::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 0, 0.1);
+            pointer-events: none;
+        }
+        
+        /* Remove highlighting for production */
+        @media print {
+            .target-column::before {
+                display: none;
+            }
+        }
+        
+        .row-number {
+            font-size: 9pt;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-info">
+            <div class="doc-number">دفتر يومية</div>
+            <div class="year">2025</div>
+        </div>
+        
+        <div class="location-date">
+            <div class="location">الموقع: <span class="date">_________________________</span></div>
+            <br>
+            <div class="date-field">التاريخ: <span class="date">____/____/2025</span></div>
+        </div>
+    </div>
+    
+    <table class="attendance-table">
+        <thead class="table-header">
+            <tr>
+                <th class="col-index">م</th>
+                <th class="col-name">الاسم</th>
+                <th class="col-attendance-time target-column">وقت التسليم</th>
+                <th class="col-rank target-column">نقطة الحراسة</th>
+                <th class="col-shift target-column">الوردية</th>
+                <th class="col-signature">التوقيع</th>
+                <th class="col-notes">ملاحظات</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Generate 25 empty rows -->
+            <tr class="table-row">
+                <td class="col-index row-number">1</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">2</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">3</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">4</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">5</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">6</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">7</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">8</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">9</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">10</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <!-- Continue with more rows... -->
+            <tr class="table-row">
+                <td class="col-index row-number">11</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">12</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">13</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">14</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">15</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">16</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">17</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">18</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">19</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">20</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">21</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">22</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">23</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">24</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+            <tr class="table-row">
+                <td class="col-index row-number">25</td>
+                <td class="col-name"></td>
+                <td class="col-attendance-time target-column"></td>
+                <td class="col-rank target-column"></td>
+                <td class="col-shift target-column"></td>
+                <td class="col-signature"></td>
+                <td class="col-notes"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
